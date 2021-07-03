@@ -1,15 +1,31 @@
 package problemSet_1;
 
+import java.util.Arrays;
+
 public class BinarySearch {
 
 	public static void main(String[] args) {
 		int [] arr = {2,6,9,10,23,35,46,56,60,71};
-		//int result = search(arr, 71);
-		int result = searchRecursive(arr, 761, 0, arr.length -1);
+
+		System.out.println(recursiveSearch(arr, 11, 0, arr.length-1));
+
+/*		int result = searchRecursive(arr, 761, 0, arr.length -1);
 		if(result == -1)
 			System.out.println("Element is not available in Array");
 		else
-			System.out.println(" Mentioned element available at intex " + result);
+			System.out.println(" Mentioned element available at intex " + result);*/
+	}
+
+
+	private static boolean recursiveSearch(int[] arr, int elementToSearch, int startIndex, int endIndex) {
+		if (startIndex > endIndex)
+			return false;
+		int mid = (endIndex - startIndex)/2 + startIndex;
+		if (arr[mid] == elementToSearch)
+			return true;
+		if (arr[mid] > elementToSearch)
+			return recursiveSearch(arr, elementToSearch, startIndex, mid-1);
+		return recursiveSearch(arr, elementToSearch, mid+1, endIndex);
 	}
 	
 	private static int search(int[] arr, int elementToSearch){
