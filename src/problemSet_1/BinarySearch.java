@@ -27,6 +27,8 @@ public class BinarySearch {
 			return recursiveSearch(arr, elementToSearch, startIndex, mid-1);
 		return recursiveSearch(arr, elementToSearch, mid+1, endIndex);
 	}
+
+
 	
 	private static int search(int[] arr, int elementToSearch){
 		int startIndex = 0;
